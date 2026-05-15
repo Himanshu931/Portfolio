@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #320A6B;
+  --color-secondary: #065084;
+  --color-tertiary: #0F828C;
+  --color-surface: #F1F8F7;
+  --color-text-primary: #320A6B;
+  --color-text-secondary: #065084;
+  --color-glass: rgba(241, 248, 247, 0.6);
+  --color-glow: rgba(120, 185, 181, 0.2);
+
+  --font-sora: "Sora", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-inter bg-surface text-text-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sora;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/40 border border-white/50 shadow-sm;
+  }
+
+  .pill-button {
+    @apply rounded-full px-6 py-2 font-medium transition-all duration-300;
+  }
+}
