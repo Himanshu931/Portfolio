@@ -15,8 +15,14 @@
 }
 
 @layer base {
-  body {
-    @apply font-inter bg-surface text-text-primary;
+  html, body {
+    @apply font-inter bg-surface text-text-primary overflow-x-clip;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
   }
 
   h1,
