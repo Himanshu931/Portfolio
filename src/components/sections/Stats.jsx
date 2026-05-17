@@ -35,18 +35,7 @@ function AnimatedCounter({ target, suffix = '', prefix = '', duration = 2 }) {
 /* =========================================================
    Noise texture SVG
 ========================================================= */
-const NoiseBg = () => (
-  <svg
-    className="absolute inset-0 w-full h-full opacity-[0.035] pointer-events-none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <filter id="noise">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
-      <feColorMatrix type="saturate" values="0" />
-    </filter>
-    <rect width="100%" height="100%" filter="url(#noise)" />
-  </svg>
-);
+/* NoiseBg removed — feTurbulence SVG filter is GPU-expensive */
 
 /* =========================================================
    Glowing pulsing ring
@@ -61,9 +50,10 @@ const GlowRing = ({ size, cx, cy, color, delay, opacity = 0.12 }) => (
       top: cy - size / 2,
       border: `1px solid ${color}`,
       opacity,
+      willChange: 'transform, opacity',
     }}
-    animate={{ scale: [1, 1.07, 1], opacity: [opacity, opacity * 1.7, opacity] }}
-    transition={{ duration: 5 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
+    animate={{ scale: [1, 1.05, 1], opacity: [opacity, opacity * 1.5, opacity] }}
+    transition={{ duration: 8 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
   />
 );
 
@@ -204,14 +194,12 @@ const Stats = () => {
       className="relative overflow-hidden py-20 px-6"
       style={{ background: 'linear-gradient(135deg, #0d0720 0%, #0a1628 50%, #07181f 100%)' }}
     >
-      <NoiseBg />
+      {/* removed: <NoiseBg /> */}
 
-      {/* Ambient glow rings */}
+      {/* Ambient glow rings — 2 rings instead of 4 */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <GlowRing size={600} cx={-60} cy={220} color="#7c3aed" delay={0} opacity={0.12} />
-        <GlowRing size={820} cx={-60} cy={220} color="#7c3aed" delay={1.5} opacity={0.05} />
-        <GlowRing size={500} cx={1420} cy={420} color="#0f828c" delay={1} opacity={0.12} />
-        <GlowRing size={720} cx={1420} cy={420} color="#0f828c" delay={2.5} opacity={0.05} />
+        <GlowRing size={700} cx={-60} cy={220} color="#7c3aed" delay={0} opacity={0.1} />
+        <GlowRing size={600} cx={1420} cy={420} color="#0f828c" delay={1.5} opacity={0.1} />
         <div
           className="absolute"
           style={{
@@ -297,7 +285,7 @@ const Stats = () => {
               className="absolute inset-0 rounded-[1.5rem] pointer-events-none"
               animate={{ opacity: hovered === 'hero' ? 1 : 0 }}
               transition={{ duration: 0.4 }}
-              style={{ background: 'radial-gradient(ellipse at 25% 25%, rgba(167,139,250,0.18) 0%, transparent 60%)' }}
+              style={{ background: 'radial-gradient(ellipse at 25% 25%, rgba(167,139,250,0.18) 0%, transparent 60%)', willChange: 'opacity' }}
             />
             {/* Deco circle */}
             <div
@@ -366,7 +354,7 @@ const Stats = () => {
               className="absolute inset-0 rounded-[1.5rem] pointer-events-none"
               animate={{ opacity: hovered === 'github' ? 1 : 0 }}
               transition={{ duration: 0.4 }}
-              style={{ background: 'radial-gradient(ellipse at 70% 25%, rgba(15,130,140,0.14), transparent 65%)' }}
+              style={{ background: 'radial-gradient(ellipse at 70% 25%, rgba(15,130,140,0.14), transparent 65%)', willChange: 'opacity' }}
             />
             <div
               className="absolute -right-12 -top-12 w-44 h-44 rounded-full pointer-events-none"

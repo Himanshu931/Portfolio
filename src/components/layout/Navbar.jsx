@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Fingerprint, Cpu, FolderOpen, Activity, MessageCircle } from 'lucide-react';
 
 const Navbar = () => {
   const [active, setActive] = useState('about');
@@ -7,86 +8,70 @@ const Navbar = () => {
   const navItems = [
     {
       id: 'about', label: 'About', icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-        </svg>
+        <Fingerprint className="h-5 w-5" strokeWidth={2} />
       ), outlineIcon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-        </svg>
+        <Fingerprint className="h-5 w-5" strokeWidth={1.5} />
       ), href: '#about'
     },
     {
       id: 'skills', label: 'Skills', icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
-        </svg>
+        <Cpu className="h-5 w-5" strokeWidth={2} />
       ), outlineIcon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
+        <Cpu className="h-5 w-5" strokeWidth={1.5} />
       ), href: '#skills'
     },
     {
       id: 'projects', label: 'Projects', icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-        </svg>
+        <FolderOpen className="h-5 w-5" strokeWidth={2} />
       ), outlineIcon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.97a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.538 1.118l-3.97-2.909a1 1 0 00-1.175 0l-3.97 2.909c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118l-3.97-2.909c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.95-.69l1.519-4.674z" />
-        </svg>
+        <FolderOpen className="h-5 w-5" strokeWidth={1.5} />
       ), href: '#projects'
     },
     {
       id: 'stats', label: 'Stats', icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z" />
-        </svg>
+        <Activity className="h-5 w-5" strokeWidth={2.5} />
       ), outlineIcon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
+        <Activity className="h-5 w-5" strokeWidth={1.5} />
       ), href: '#stats'
     },
     {
       id: 'contact', label: 'Contact', icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.43-3.9-6.63-6.83l1.96-1.54a1.11 1.11 0 00.24-1.02 11.39 11.39 0 01-.56-3.53c0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.45 3 3.99 3 13.37 10.63 21 20.01 21c.54 0 .99-.45.99-.99v-3.64c0-.54-.45-.99-.99-.99z" />
-        </svg>
+        <MessageCircle className="h-5 w-5" fill="currentColor" stroke="currentColor" strokeWidth={0} />
       ), outlineIcon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.68l.6 1.45a1 1 0 01-.24 1.05L7.7 7.07a16.03 16.03 0 006.33 6.33l1.06-1.06a1 1 0 011.05-.24l1.45.6a1 1 0 01.68.94V19a2 2 0 01-2 2h-1c-5.07 0-9.19-4.12-9.19-9.19V5z" />
-        </svg>
+        <MessageCircle className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} />
       ), href: '#contact'
     }
   ];
 
 
   useEffect(() => {
+    let rafId = null;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
-      
-      let currentActive = active;
-      for (const section of sections) {
-        const rect = section.getBoundingClientRect();
-        
-        if (rect.top <= windowHeight * 0.4 && rect.bottom >= windowHeight * 0.4) {
-          currentActive = section.id;
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        const windowHeight = window.innerHeight;
+        const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
+        let currentActive = active;
+        for (const section of sections) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= windowHeight * 0.4 && rect.bottom >= windowHeight * 0.4) {
+            currentActive = section.id;
+          }
         }
-      }
-      
-      if (currentActive !== active) {
-        setActive(currentActive);
-      }
+        if (currentActive !== active) {
+          setActive(currentActive);
+        }
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once on mount to set initial state
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
@@ -115,7 +100,8 @@ const Navbar = () => {
                       section.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="relative px-4 py-2.5 flex items-center space-x-1.5 text-sm font-medium transition-colors duration-300"
+                  className="relative flex items-center rounded-full transition-colors duration-300"
+                  style={{ padding: isActive ? '0.625rem 1rem' : '0.625rem' }}
                 >
                   {isActive && (
                     <motion.div
@@ -124,12 +110,24 @@ const Navbar = () => {
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
                   )}
-                  <span className={`relative z-10 ${isActive ? 'text-[#320A6B]' : 'text-[#065084]/70'}`}>
+                  <span className={`relative z-10 flex-shrink-0 ${isActive ? 'text-[#320A6B]' : 'text-[#065084]/70'}`}>
                     {isActive ? item.icon : item.outlineIcon}
                   </span>
-                  <span className={`relative z-10 font-sora text-xs hidden sm:inline-block ${isActive ? 'text-[#320A6B] font-bold' : 'text-[#065084]/70'}`}>
-                    {item.label}
-                  </span>
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.span
+                        key={item.id + '-label'}
+                        initial={{ width: 0, opacity: 0, marginLeft: 0 }}
+                        animate={{ width: 'auto', opacity: 1, marginLeft: 6 }}
+                        exit={{ width: 0, opacity: 0, marginLeft: 0 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                        className="relative z-10 font-sora text-xs font-bold text-[#320A6B] overflow-hidden whitespace-nowrap"
+                        style={{ display: 'inline-block' }}
+                      >
+                        {item.label}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
                 </a>
               );
             })}

@@ -17,9 +17,9 @@ const Hero = () => {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 20,
-    mass: 0.5,
+    stiffness: 80,
+    damping: 25,
+    restDelta: 0.005,
   });
 
   // ── TEXT (fades + lifts simultaneously with everything else) ──
@@ -58,9 +58,9 @@ const Hero = () => {
     >
 
       {/* AMBIENT GLOWS */}
-      <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#78B9B5]/20 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#320A6B]/15 blur-[150px] rounded-full" />
+      <motion.div style={{ y: bgY, willChange: 'transform' }} className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#78B9B5]/20 blur-[80px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#320A6B]/15 blur-[100px] rounded-full" />
       </motion.div>
 
       {/* GRID */}
@@ -77,13 +77,12 @@ const Hero = () => {
 
       {/* STICKY VIEWPORT */}
       <div className="sticky top-0 h-screen flex items-center overflow-hidden px-6">
-        <motion.div
-          style={{}}
+        <div
           className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10"
         >
 
           {/* ── LEFT CONTENT ── */}
-          <motion.div style={{ opacity: textOpacity, y: textY }}>
+          <motion.div style={{ opacity: textOpacity, y: textY, willChange: 'opacity, transform' }}>
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -185,7 +184,7 @@ const Hero = () => {
 
             {/* PHOTO — slides left */}
             <motion.div
-              style={{ x: imageX }}
+              style={{ x: imageX, willChange: 'transform' }}
               className="absolute inset-0 flex justify-center items-center"
             >
               <div ref={imageRef} className="relative w-full max-w-[460px] mx-auto mt-12">
@@ -203,16 +202,18 @@ const Hero = () => {
 
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="absolute -left-16 top-16 bg-white/70 backdrop-blur-xl px-5 py-3 rounded-2xl shadow-xl border border-white"
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  style={{ willChange: 'transform' }}
+                  className="absolute -left-16 top-16 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-white"
                 >
                   <p className="text-sm font-semibold text-slate-800">UI Engineer</p>
                 </motion.div>
 
                 <motion.div
                   animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                  className="absolute -right-12 bottom-20 bg-white/70 backdrop-blur-xl px-5 py-3 rounded-2xl shadow-xl border border-white"
+                  transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                  style={{ willChange: 'transform' }}
+                  className="absolute -right-12 bottom-20 bg-white/70 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-white"
                 >
                   <p className="text-sm font-semibold text-slate-800">Problem Solver</p>
                 </motion.div>
@@ -220,7 +221,7 @@ const Hero = () => {
             </motion.div>
 
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <style>{`

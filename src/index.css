@@ -203,3 +203,13 @@
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
+
+/* ── Performance: promote animated fixed elements to GPU layers ── */
+.fixed {
+  transform: translateZ(0);
+}
+
+/* Reduce backdrop-filter repaint scope */
+.glass-card {
+  contain: layout style paint;
+}

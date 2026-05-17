@@ -5,9 +5,9 @@ const ScrollIndicator = () => {
   const { scrollYProgress } = useScroll();
   
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
+    stiffness: 80,
+    damping: 25,
+    restDelta: 0.005,
   });
 
   return (
@@ -16,16 +16,17 @@ const ScrollIndicator = () => {
       {/* Track */}
       <div className="relative w-[2px] flex-1 bg-white/20 rounded-full">
         <motion.div 
-          className="absolute top-0 left-0 w-full bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-          style={{ height: '100%', scaleY: smoothProgress, originY: 0 }}
+          className="absolute top-0 left-0 w-full bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.7)]"
+          style={{ height: '100%', scaleY: smoothProgress, originY: 0, willChange: 'transform' }}
         />
         
         {/* Glowing Orb at the current position */}
         <motion.div 
-          className="absolute left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,1)]"
+          className="absolute left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.9)]"
           style={{ 
             top: useTransform(smoothProgress, [0, 1], ['0%', '100%']),
-            y: '-50%' 
+            y: '-50%',
+            willChange: 'transform',
           }}
         />
       </div>
