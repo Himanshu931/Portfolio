@@ -6,8 +6,6 @@ import Hero from './components/sections/Hero'
 import Skills from './components/sections/Skills'
 import Projects from './components/sections/Projects'
 import Stats from './components/sections/Stats'
-import Algorithm from './components/sections/Algorithm'
-import CTA from './components/sections/CTA'
 import Footer from './components/layout/Footer'
 import ScrollIndicator from './components/layout/ScrollIndicator'
 
@@ -45,8 +43,6 @@ function App() {
         <Skills />
         <Projects />
         <Stats />
-        <Algorithm />
-        <CTA />
       </main>
       <Footer />
     </div>

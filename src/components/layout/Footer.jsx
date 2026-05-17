@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#fbfbfe] text-gray-900 pt-24 pb-12 px-6 md:px-12 w-full border-t border-[#065084]/10">
+    <footer id="contact" className="bg-[#fbfbfe] text-gray-900 pt-24 pb-12 px-6 md:px-12 w-full border-t border-[#065084]/10">
       <div className="max-w-7xl mx-auto">
         
         {/* Top Header */}
