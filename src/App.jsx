@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar'
 import Hero from './components/sections/Hero'
 import Skills from './components/sections/Skills'
 import Projects from './components/sections/Projects'
+import Stats from './components/sections/Stats'
 import Algorithm from './components/sections/Algorithm'
 import CTA from './components/sections/CTA'
 import Footer from './components/layout/Footer'
@@ -43,6 +44,7 @@ function App() {
         <Hero />
         <Skills />
         <Projects />
+        <Stats />
         <Algorithm />
         <CTA />
       </main>

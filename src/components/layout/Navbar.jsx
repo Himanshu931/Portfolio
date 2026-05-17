@@ -39,6 +39,17 @@ const Navbar = () => {
       ), href: '#projects'
     },
     {
+      id: 'stats', label: 'Stats', icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z" />
+        </svg>
+      ), outlineIcon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ), href: '#stats'
+    },
+    {
       id: 'contact', label: 'Contact', icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.43-3.9-6.63-6.83l1.96-1.54a1.11 1.11 0 00.24-1.02 11.39 11.39 0 01-.56-3.53c0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.45 3 3.99 3 13.37 10.63 21 20.01 21c.54 0 .99-.45.99-.99v-3.64c0-.54-.45-.99-.99-.99z" />
@@ -50,6 +61,7 @@ const Navbar = () => {
       ), href: '#contact'
     }
   ];
+
 
   useEffect(() => {
     const handleScroll = () => {
