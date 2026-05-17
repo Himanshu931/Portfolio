@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
@@ -51,6 +51,33 @@ const Navbar = () => {
     }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
+      
+      let currentActive = active;
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        
+        if (rect.top <= windowHeight * 0.4 && rect.bottom >= windowHeight * 0.4) {
+          currentActive = section.id;
+        }
+      }
+      
+      if (currentActive !== active) {
+        setActive(currentActive);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once on mount to set initial state
+    return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
+
   return (
     <div className="fixed top-6 left-0 w-full z-50 px-6">
       <div className="relative w-full flex items-center">
@@ -69,7 +96,13 @@ const Navbar = () => {
                 <a
                   key={item.id}
                   href={item.href}
-                  onClick={() => setActive(item.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const section = document.getElementById(item.id);
+                    if (section) {
+                      section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className="relative px-4 py-2.5 flex items-center space-x-1.5 text-sm font-medium transition-colors duration-300"
                 >
                   {isActive && (

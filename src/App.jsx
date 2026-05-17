@@ -8,6 +8,7 @@ import Projects from './components/sections/Projects'
 import Algorithm from './components/sections/Algorithm'
 import CTA from './components/sections/CTA'
 import Footer from './components/layout/Footer'
+import ScrollIndicator from './components/layout/ScrollIndicator'
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
   }, [])
   return (
     <div className="bg-[#fbfbfe] min-h-screen font-sans antialiased text-gray-900">
+      <ScrollIndicator />
       <Navbar />
       <main>
         <Hero />
