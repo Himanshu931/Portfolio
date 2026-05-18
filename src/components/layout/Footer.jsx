@@ -47,7 +47,7 @@ const Footer = () => {
                   <div className="w-[52px] h-[52px] rounded-full bg-white overflow-hidden p-0.5 border border-[#065084]/30 shadow-sm">
                     <img 
                       src="Me.jpeg" 
-                      alt="Himanshu" 
+                      alt="Himanshu Prusty - Contact Information" 
                       className="w-full h-full rounded-full grayscale object-cover" 
                     />
                   </div>
@@ -126,7 +126,7 @@ const Footer = () => {
               { id: 'twitter', icon: <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /> },
               { id: 'instagram', icon: <><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></> },
             ].map((social) => (
-              <a key={social.id} href="#" className="w-12 h-12 md:w-14 md:h-14 border border-[#065084]/20 border-r-0 last:border-r flex items-center justify-center text-[#065084] hover:text-[#320A6B] hover:bg-[#065084]/5 transition-colors">
+              <a key={social.id} href="#" aria-label={`Himanshu Prusty on ${social.id.charAt(0).toUpperCase() + social.id.slice(1)}`} className="w-12 h-12 md:w-14 md:h-14 border border-[#065084]/20 border-r-0 last:border-r flex items-center justify-center text-[#065084] hover:text-[#320A6B] hover:bg-[#065084]/5 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   {social.icon}
                 </svg>

@@ -94,11 +94,9 @@ const Hero = () => {
               </div>
 
               <div className="space-y-2">
-                <h1 className="text-6xl md:text-[7.5rem] font-black leading-[0.9] tracking-[-0.08em] text-[#0f172a]">
-                  Himanshu
-                </h1>
-                <h1 className="text-6xl md:text-[7.5rem] font-black leading-[0.9] tracking-[-0.08em] text-[#320a6b]">
-                  Prusty
+                <h1 className="text-6xl md:text-[7.5rem] font-black leading-[0.9] tracking-[-0.08em]">
+                  <span className="block text-[#0f172a]">Himanshu</span>
+                  <span className="block text-[#320a6b]">Prusty</span>
                 </h1>
               </div>
 
@@ -192,7 +190,7 @@ const Hero = () => {
                   <div className="absolute inset-0 rounded-[2.5rem] p-[1px] bg-gradient-to-br from-white/60 via-transparent to-white/20" />
                   <img
                     src="/Me.jpeg"
-                    alt="Himanshu Prusty"
+                    alt="Himanshu Prusty - Full Stack Developer & UI Engineer"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />

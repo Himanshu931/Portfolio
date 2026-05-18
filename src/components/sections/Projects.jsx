@@ -128,7 +128,7 @@ function FeaturedCard({ project }) {
         <div className="relative overflow-hidden" style={{ minHeight: 360 }}>
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} - Full Stack Project by Himanshu Prusty`}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
           />
 
@@ -207,7 +207,7 @@ function ProjectCard({ project, index }) {
       <div className="relative overflow-hidden" style={{ height: 180 }}>
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} - Web Application by Himanshu Prusty`}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div
