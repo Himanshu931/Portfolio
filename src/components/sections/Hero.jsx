@@ -97,10 +97,8 @@ const Hero = () => {
                 <h1 className="text-6xl md:text-[7.5rem] font-black leading-[0.9] tracking-[-0.08em] text-[#0f172a]">
                   Himanshu
                 </h1>
-                <h1 className="text-6xl md:text-[7.5rem] font-black leading-[0.9] tracking-[-0.08em]">
-                  <span className="bg-gradient-to-r from-[#065084] via-[#320A6B] to-[#78B9B5] bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
-                    Prusty
-                  </span>
+                <h1 className="text-6xl md:text-[7.5rem] font-black leading-[0.9] tracking-[-0.08em] text-[#320a6b]">
+                  Prusty
                 </h1>
               </div>
 

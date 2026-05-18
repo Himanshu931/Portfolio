@@ -17,8 +17,14 @@
 
   --font-sora: "Sora", sans-serif;
   --font-inter: "Inter", sans-serif;
-}
 
+  @keyframes glint {
+    0%, 60% { left: -60%; opacity: 0; }
+    65% { opacity: 1; }
+    85% { left: 130%; opacity: 0; }
+    100% { left: 130%; opacity: 0; }
+  }
+}
 @layer base {
   html, body {
     @apply font-inter bg-surface text-text-primary overflow-x-clip;
@@ -213,3 +219,4 @@
 .glass-card {
   contain: layout style paint;
 }
+
