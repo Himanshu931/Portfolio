@@ -130,6 +130,8 @@ function FeaturedCard({ project }) {
             src={project.image}
             alt={`${project.title} - Full Stack Project by Himanshu Prusty`}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+            loading="lazy"
+            decoding="async"
           />
 
           {/* Featured badge */}
@@ -209,6 +211,8 @@ function ProjectCard({ project, index }) {
           src={project.image}
           alt={`${project.title} - Web Application by Himanshu Prusty`}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
         />
         <div
           className="absolute inset-0"

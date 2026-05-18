@@ -49,6 +49,8 @@ const Footer = () => {
                       src="Me.jpeg" 
                       alt="Himanshu Prusty - Contact Information" 
                       className="w-full h-full rounded-full grayscale object-cover" 
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
